@@ -68,7 +68,9 @@ function init() {
                  entries.forEach(function(entry) {
                      container.append(entryTemplate(entry));
                  });
-
+                 
+                // from jonah: the idea of this line is that if a callback function is 
+                // passed in as an argument then we should execute it
                  if (cb) {
                      cb();
                  }

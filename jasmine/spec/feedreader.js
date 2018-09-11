@@ -32,6 +32,11 @@ $(function() {
          * and that the URL is not empty.
          */
 
+         it('has URL defined and URL is not empty', function() {
+            allFeeds.forEach(function(id) {
+                expect(allFeeds[id].url).toBeDefined();
+            });
+         });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
