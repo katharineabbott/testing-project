@@ -31,7 +31,7 @@ $(function() {
          * and that the URL is not empty.
          */
 
-         it('has URL defined and URL is not empty', function() {
+         it('have URL defined and URL is not empty', function() {
             allFeeds.forEach(function(item) {
                 expect(item.url).toBeDefined();
                 expect(item.url).not.toEqual('');
@@ -43,7 +43,7 @@ $(function() {
          * and that the name is not empty.
          */
 
-         it('has name defined and name is not empty', function () {
+         it('have name defined and name is not empty', function () {
             allFeeds.forEach(function(item) {
                 expect(item.name).toBeDefined();
                 expect(item.name).not.toEqual('');
@@ -62,7 +62,7 @@ $(function() {
         var menuSelector = $("body");
         var menu = menuSelector[0].classList;
 
-         it('menu is hidden by default', function() {
+         it('is hidden by default', function() {
             expect(menu).toContain('menu-hidden');
          });
 
@@ -72,9 +72,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
-          it('menu changes visibility on click', function() {
-            // console.log(menu[0].on('click'));
-            // expect(menu[0].on('click')).toBe('');
+          it('changes visibility on click', function() {
+            var hamburgerSelector = $("i");
+            hamburgerSelector.click();
+            expect(menu.value).toBe('');
+            hamburgerSelector.click();
+            expect(menu).toContain('menu-hidden');
           });
     }); 
 
