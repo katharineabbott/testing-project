@@ -75,7 +75,7 @@ $(function() {
           it('changes visibility on click', function() {
             var hamburgerSelector = $("i");
             hamburgerSelector.click();
-            expect(menu.value).toBe('');
+            expect(menu).not.toContain('menu-hidden');
             hamburgerSelector.click();
             expect(menu).toContain('menu-hidden');
           });
