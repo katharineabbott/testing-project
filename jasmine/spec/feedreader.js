@@ -26,13 +26,12 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
 
-         it('has URL defined and URL is not empty', function() {
+         it('have URL defined and URL is not empty', function() {
             allFeeds.forEach(function(item) {
                 expect(item.url).toBeDefined();
                 expect(item.url).not.toEqual('');
@@ -44,7 +43,7 @@ $(function() {
          * and that the name is not empty.
          */
 
-         it('has name defined and name is not empty', function () {
+         it('have name defined and name is not empty', function () {
             allFeeds.forEach(function(item) {
                 expect(item.name).toBeDefined();
                 expect(item.name).not.toEqual('');
@@ -54,18 +53,33 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     
-
+    describe('The menu', function() {
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        var menuSelector = $("body");
+        var menu = menuSelector[0].classList;
+
+         it('is hidden by default', function() {
+            expect(menu).toContain('menu-hidden');
+         });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
+          it('changes visibility on click', function() {
+            var hamburgerSelector = $("i");
+            hamburgerSelector.click();
+            expect(menu).not.toContain('menu-hidden');
+            hamburgerSelector.click();
+            expect(menu).toContain('menu-hidden');
+          });
+    }); 
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
