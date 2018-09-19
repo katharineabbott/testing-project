@@ -92,18 +92,54 @@ $(function() {
          */
         var feed = $(".feed");
         var entry = $(".entry");
+        var allFeeds = [
+            {
+                name: 'Udacity Blog',
+                url: 'http://blog.udacity.com/feed'
+            }, {
+                name: 'CSS Tricks',
+                url: 'http://feeds.feedburner.com/CssTricks'
+            }, {
+                name: 'HTML5 Rocks',
+                url: 'http://feeds.feedburner.com/html5rocks'
+            }, {
+                name: 'Linear Digressions',
+                url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+            }
+        ];
+        
         
          beforeEach(function(done) {
+            var feedUrl = allFeeds[1].url;
+            var feedName = allFeeds[1].name;
+            loadFeed(1);
+            console.log(feedName);
+            
             done();
         });
 
-        
-
+    
         it('has .entry inside .feed container when loadFeed finishes', function(done){
-            // expect(feed[0].children.length).toBeGreaterThan(0);
-            expect(feed[0].children[0].classList).toContain(entry[0].classList[0]);
+            console.log(feed[0]);
+            console.log(feed[0].children);
+            console.log(feed[0].children.length);
             done();
         });
+        // var dog = {
+        //     name: "spot",
+        //     breed: "chow",
+        //     paws: "four"
+        // }
+        // beforeEach (function(done) {
+        //     dog.breed = "dalmatian";
+        //     done();
+        // });
+
+        // it('does a thing', function(done){
+        //     dog.breed = "pitbull";
+        //     expect(dog.breed).toBe("pitbull");
+        //     done();
+        // })
     });
 
         
