@@ -101,7 +101,10 @@ $(function() {
         });
 
         it('content actually changes when new feed is loaded', function(done){
-            
+            var firstUrl = feedUrl;
+            loadFeed();
+            var secondUrl = feedUrl;
+            expect(firstUrl).not.toBe(secondUrl);
             done();
         });
     });
