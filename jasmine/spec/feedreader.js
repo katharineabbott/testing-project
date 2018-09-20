@@ -102,18 +102,12 @@ $(function() {
             var defaultFeedTitle = feedTitleSelector[0].textContent;
             loadFeed(0, done);
             this.defaultFeedTitle = defaultFeedTitle;
-            console.log(defaultFeedTitle);
         });
 
         it('content actually changes when new feed is loaded', function(done){
             var firstFeedTitle = feedTitleSelector[0].textContent;
             var defaultFeedTitle = this.defaultFeedTitle;
-            console.log(firstFeedTitle);
             expect(defaultFeedTitle).not.toBe(firstFeedTitle);
-            loadFeed(1);
-            var secondFeedTitle = feedTitleSelector[0].textContent;
-            console.log(secondFeedTitle);
-            expect(firstFeedTitle).not.toBe(secondFeedTitle);
             done();
         });
     });
