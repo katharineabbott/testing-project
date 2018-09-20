@@ -98,24 +98,18 @@ $(function() {
          */
         var feedTitleSelector = $('.header-title');
         
-        
         beforeEach(function(done) {
-            // var id = 0;
-            // var feedList = $('.feed-list');
-            // var firstFeed = feedList[0].children[0];
-            // var secondFeed = feedList[0].children[1];
-            // var thirdFeed = feedList[0].children[2];
-            // var fourthFeed = feedList[0].children[3];
-            var feedTitle = feedTitleSelector[0].textContent;
-            console.log(feedTitle);
+            var defaultFeedTitle = feedTitleSelector[0].textContent;
             loadFeed(0, done);
-            this.feedTitle = feedTitle;
+            this.defaultFeedTitle = defaultFeedTitle;
+            console.log(defaultFeedTitle);
         });
 
         it('content actually changes when new feed is loaded', function(done){
-            var secondFeedTitle = feedTitleSelector[0].textContent;
-            console.log(this.feedTitle);
-            expect(this.feedTitle).not.toBe(secondFeedTitle);
+            var firstFeedTitle = feedTitleSelector[0].textContent;
+            var defaultFeedTitle = this.defaultFeedTitle;
+            console.log(firstFeedTitle);
+            expect(defaultFeedTitle).not.toBe(firstFeedTitle);
             done();
         });
     });
