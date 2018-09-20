@@ -96,15 +96,26 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var feedTitleSelector = $('.header-title');
+        
+        
         beforeEach(function(done) {
+            // var id = 0;
+            // var feedList = $('.feed-list');
+            // var firstFeed = feedList[0].children[0];
+            // var secondFeed = feedList[0].children[1];
+            // var thirdFeed = feedList[0].children[2];
+            // var fourthFeed = feedList[0].children[3];
+            var feedTitle = feedTitleSelector[0].textContent;
+            console.log(feedTitle);
             loadFeed(0, done);
+            this.feedTitle = feedTitle;
         });
 
         it('content actually changes when new feed is loaded', function(done){
-            var firstUrl = feedUrl;
-            loadFeed();
-            var secondUrl = feedUrl;
-            expect(firstUrl).not.toBe(secondUrl);
+            var secondFeedTitle = feedTitleSelector[0].textContent;
+            console.log(this.feedTitle);
+            expect(this.feedTitle).not.toBe(secondFeedTitle);
             done();
         });
     });
