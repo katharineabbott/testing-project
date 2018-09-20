@@ -110,6 +110,10 @@ $(function() {
             var defaultFeedTitle = this.defaultFeedTitle;
             console.log(firstFeedTitle);
             expect(defaultFeedTitle).not.toBe(firstFeedTitle);
+            loadFeed(1);
+            var secondFeedTitle = feedTitleSelector[0].textContent;
+            console.log(secondFeedTitle);
+            expect(firstFeedTitle).not.toBe(secondFeedTitle);
             done();
         });
     });
