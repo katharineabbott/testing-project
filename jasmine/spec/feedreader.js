@@ -96,8 +96,8 @@ $(function() {
     
         it('has .entry inside .feed container when loadFeed finishes', function(done){
             var feed = $(".feed");
-            var entry = $(".entry"); 
-            var entryElement = entry[0].classList[0]
+            var entry = $("article:last-child");
+            var entryElement = entry[0].classList[0];
             expect(feed[0].children.length).toBeGreaterThan(0);
             expect(feed[0].children[0].classList[0]).toContain(entryElement);
             done();
