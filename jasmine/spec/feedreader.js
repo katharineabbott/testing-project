@@ -110,9 +110,24 @@ $(function() {
         
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var feedTitleSelector = $('.header-title');
+        
+        beforeEach(function(done) {
+            var defaultFeedTitle = feedTitleSelector[0].textContent;
+            loadFeed(0, done);
+            this.defaultFeedTitle = defaultFeedTitle;
+        });
+
+        it('content actually changes when new feed is loaded', function(done){
+            var firstFeedTitle = feedTitleSelector[0].textContent;
+            var defaultFeedTitle = this.defaultFeedTitle;
+            expect(defaultFeedTitle).not.toBe(firstFeedTitle);
+            done();
+        });
+    });
 }());
