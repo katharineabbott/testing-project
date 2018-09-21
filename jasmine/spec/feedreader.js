@@ -91,7 +91,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
          beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(1, done);
         });
     
         it('has .entry inside .feed container when loadFeed finishes', function(done){
@@ -115,18 +115,22 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        var feedTitleSelector = $('.header-title');
         
         beforeEach(function(done) {
+            var feedTitleSelector = $('.header-title');
             var defaultFeedTitle = feedTitleSelector[0].textContent;
+            this.firstFeedTitle = defaultFeedTitle;
             loadFeed(0, done);
-            this.defaultFeedTitle = defaultFeedTitle;
+            console.log(this.firstFeedTitle);
         });
 
         it('content actually changes when new feed is loaded', function(done){
-            var firstFeedTitle = feedTitleSelector[0].textContent;
-            var defaultFeedTitle = this.defaultFeedTitle;
-            expect(defaultFeedTitle).not.toBe(firstFeedTitle);
+            var firstFeedTitle = this.firstFeedTitle;
+            loadFeed(1);
+            var secondFeedTitleSelector = $('.header-title');
+            var secondFeedTitle = secondFeedTitleSelector[0].textContent;
+            console.log(secondFeedTitle);
+            expect(firstFeedTitle).not.toBe(secondFeedTitle);
             done();
         });
     });
