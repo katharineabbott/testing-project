@@ -5,4 +5,11 @@ This project was completed using the provided code from Udacity. The original co
 
 ## How do I run the tests?
 
-* The tests utilize Jasmine, jQuery, and Handlebars. 
+To run, open `index.html` in your browser of choice. The tests are located at the bottom of the page. 
+
+## What do I need?
+
+The tests utilize:
+* Jasmine
+* jQuery
+* Handlebars

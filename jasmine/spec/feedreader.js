@@ -101,7 +101,7 @@ $(function() {
         // the class list of the "entry" variable, expects that it has at least one class, and then finally, checks that the
         // class list contains the class "entry".
         it('has .entry inside .feed container when loadFeed finishes', function(done){
-            var feed = $(".feed");
+            var feed = $('.menu-hidden > .feed');
             expect(feed.children).not.toBeLessThan(1);
             var entry = feed[0].children[0];
             expect(entry.children).not.toBeLessThan(1);
